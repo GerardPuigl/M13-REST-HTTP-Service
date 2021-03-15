@@ -10,8 +10,8 @@ public class Employee {
 	 * 
 	 */
 	
-	
-	private static int id=0;
+	private static int idCount=0;
+	private int id;
 	private String name;
 	private String job;
 	
@@ -19,7 +19,7 @@ public class Employee {
 	}
 	
 	public Employee(String name, String job) {
-		id=id++;
+		this.id=idCount++;
 		this.name = name;
 		this.job = job;
 	}
