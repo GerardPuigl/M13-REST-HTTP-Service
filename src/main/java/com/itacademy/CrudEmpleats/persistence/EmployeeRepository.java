@@ -16,13 +16,18 @@ public class EmployeeRepository {
 
 	private List<Employee> repository = new ArrayList<>(
 			Arrays.asList(
-					new Employee("Juan", "Director de Projectes"),
+					new Employee("Joan", "Director de Projectes"),
 					new Employee("Gerard", "Programador"),
 					new Employee("Maria", "Administrativa")
 					)
 			);
+	
 	public List<Employee> getAllEmployees() {
 		return repository;
+	}
+	
+	public Employee getEmployeeById(int id) throws NoSuchElementException{
+		return repository.stream().filter(employee -> employee.getId()==id).findFirst().get();
 	}
 
 }
