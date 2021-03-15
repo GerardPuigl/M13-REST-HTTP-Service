@@ -1,7 +1,6 @@
 package com.itacademy.CrudEmpleats.persistence;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 import org.springframework.stereotype.Service;
 
@@ -15,12 +14,15 @@ public class EmployeeRepository {
 	 * 
 	 */
 
-	private ArrayList<Employee> repository = new ArrayList<>(
+	private List<Employee> repository = new ArrayList<>(
 			Arrays.asList(
 					new Employee("Juan", "Director de Projectes"),
 					new Employee("Gerard", "Programador"),
 					new Employee("Maria", "Administrativa")
 					)
 			);
+	public List<Employee> getAllEmployees() {
+		return repository;
+	}
 
 }

@@ -1,8 +1,18 @@
 package com.itacademy.CrudEmpleats.controller;
 
-import org.springframework.stereotype.Controller;
+import java.io.IOException;
+import java.util.List;
 
-@Controller
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.itacademy.CrudEmpleats.domain.Employee;
+import com.itacademy.CrudEmpleats.persistence.EmployeeRepository;
+
+@RestController
 public class ControllerEmployees {
 
 	/*
@@ -21,4 +31,21 @@ public class ControllerEmployees {
 	 * 
 	 */
 
+	@Autowired
+	private EmployeeRepository repositori;
+	
+	//Temporalment redirigim a la llista d'empleats	
+	@GetMapping("/")
+	void start(HttpServletResponse reponse) throws IOException{
+		reponse.sendRedirect("/Empleat");;
+	}
+	
+	//Retorna una llista JSon d'empleats
+	@GetMapping("/Empleat")
+	public List<Employee> allEmployees(){
+		return repositori.getAllEmployees();
+	}
+	
+	
+	
 }
