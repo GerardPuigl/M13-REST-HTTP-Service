@@ -10,15 +10,16 @@ public class Employee {
 	 * 
 	 */
 	
-	private int id;
+	
+	private static int id=0;
 	private String name;
 	private String job;
 	
 	public Employee() {
 	}
 	
-	public Employee(int id, String name, String job) {
-		this.id = id;
+	public Employee(String name, String job) {
+		id=id++;
 		this.name = name;
 		this.job = job;
 	}
