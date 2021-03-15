@@ -1,4 +1,4 @@
-package com.itacademy.crudEmpleats.persistence;
+package com.itacademy.CrudEmpleats.persistence;
 
 public class EmployeeRepository {
 	

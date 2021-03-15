@@ -1,6 +1,9 @@
-package com.itacademy.crudEmpleats.controller;
+package com.itacademy.CrudEmpleats.controller;
 
-public class Controller {
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ControllerEmployees {
 
 	/*
 	 * Crearem un programa de gestió d'empleats molt senzill on depenent de la feina

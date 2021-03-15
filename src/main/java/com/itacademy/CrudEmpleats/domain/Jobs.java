@@ -1,4 +1,4 @@
-package com.itacademy.crudEmpleats.domain;
+package com.itacademy.CrudEmpleats.domain;
 
 public enum Jobs {
 
