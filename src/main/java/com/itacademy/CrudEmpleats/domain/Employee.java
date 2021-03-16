@@ -15,8 +15,7 @@ public class Employee {
 	private String name;
 	private String job;
 	
-	public Employee() {
-	}
+
 	
 	public Employee(String name, String job) {
 		this.id=idCount++;

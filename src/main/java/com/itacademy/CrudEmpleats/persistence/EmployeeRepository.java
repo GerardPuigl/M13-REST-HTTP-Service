@@ -30,4 +30,9 @@ public class EmployeeRepository {
 		return repository.stream().filter(employee -> employee.getId()==id).findFirst().get();
 	}
 
+	public void addEmployee(Employee employee) {
+		repository.add(employee);
+		
+	}
+
 }

@@ -8,10 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.itacademy.CrudEmpleats.domain.Employee;
@@ -38,13 +35,20 @@ public class ControllerEmployees {
 
 	@Autowired
 	private EmployeeRepository repositori;
+
 	
-	//Temporalment redirigim a la llista d'empleats	
+	// Temporalment redirigim a la llista d'empleats
 	@GetMapping("/")
 	void start(HttpServletResponse reponse) throws IOException {
 		reponse.sendRedirect("/Empleat");
 	}
-
+	
+	// Crear nou empleat
+	@PostMapping( "/Empleat")
+	public void addEmployee(@RequestBody Employee employee) {
+		repositori.addEmployee(employee);
+	}
+	
 	// Retorna una llista JSon d'empleats
 	@GetMapping("/Empleat")
 	public List<Employee> allEmployees() {
@@ -53,13 +57,16 @@ public class ControllerEmployees {
 
 	// Busca un empleat per Id
 	@GetMapping("/Empleat/{id}")
-	public Employee getEmployee(@PathVariable("id") int id) {
+	public Employee getFirstEmployee(@PathVariable("id") int id) {
 		try {
 			return repositori.getEmployeeById(id);
 		} catch (NoSuchElementException e) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No s'ha trobat cap empleat amb el id =" + id);
 		}
-
 	}
+
+
+
 	
+
 }
