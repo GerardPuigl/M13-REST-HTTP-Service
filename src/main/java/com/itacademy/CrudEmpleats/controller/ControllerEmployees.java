@@ -62,17 +62,24 @@ public class ControllerEmployees {
 		try {
 			return repositori.getEmployeeById(id);
 		} catch (NoSuchElementException e) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No s'ha trobat cap empleat amb el id =" + id);
+			return null;
 		}
 	}
 
-	//Actualitzar Empleat
+	// Actualitzar Empleat
 	@PutMapping("/Empleat/{id}")
 	public Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") int id) {
 		repositori.updateEmployee(employee,id);
 		return repositori.getEmployeeById(id);
 	}
 
-	
-
+	// Eliminar Empleat
+	@DeleteMapping("/Empleat/{id}")
+	public String deleteEmployee( @PathVariable("id") int id) {
+		repositori.deleteEmployee(id);
+		if (getFirstEmployee(id)==null) {
+			return "Empleat eliminat correctament.";
+		}
+			return "L'emplat no s'ha pogut eliminar.";
+	}
 }
