@@ -16,8 +16,8 @@ public class EmployeeRepository {
 
 	private List<Employee> repository = new ArrayList<>(
 			Arrays.asList(
-					new Employee("Joan", "Director de Projectes"),
-					new Employee("Gerard", "Programador"),
+					new Employee("Joan", "Director_Projectes"),
+					new Employee("Gerard", "Programador_Junior"),
 					new Employee("Maria", "Administrativa")
 					)
 			);
@@ -26,8 +26,13 @@ public class EmployeeRepository {
 		return repository;
 	}
 	
-	public Employee getEmployeeById(int id) throws NoSuchElementException{
-		return repository.stream().filter(employee -> employee.getId()==id).findFirst().get();
+	public Employee getEmployeeById(int id){
+		try {
+			return repository.stream().filter(employee -> employee.getId()==id).findFirst().get();
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 	public void addEmployee(Employee employee) {

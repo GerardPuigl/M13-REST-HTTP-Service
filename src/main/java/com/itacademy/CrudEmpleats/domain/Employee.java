@@ -14,13 +14,15 @@ public class Employee {
 	private int id;
 	private String name;
 	private String job;
+	private double salary ;
 	
 
 	
 	public Employee(String name, String job) {
 		this.id=idCount++;
 		this.name = name;
-		this.job = job;
+		this.job = Jobs.valueOf(job).getName();
+		this.salary = Jobs.valueOf(job).getSalary();
 	}
 	
 	public int getId() {
@@ -39,7 +41,12 @@ public class Employee {
 		return job;
 	}
 	public void setJob(String job) {
-		this.job = job;
+		this.job = Jobs.valueOf(job).getName();
+		this.salary = Jobs.valueOf(job).getSalary();
+	}
+
+	public double getSalary() {
+		return salary;
 	}
 	
 	

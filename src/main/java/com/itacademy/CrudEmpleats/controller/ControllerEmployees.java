@@ -2,14 +2,11 @@ package com.itacademy.CrudEmpleats.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.itacademy.CrudEmpleats.domain.Employee;
 import com.itacademy.CrudEmpleats.persistence.EmployeeRepository;
@@ -59,11 +56,7 @@ public class ControllerEmployees {
 	// Busca un empleat per Id
 	@GetMapping("/Empleat/{id}")
 	public Employee getFirstEmployee(@PathVariable("id") int id) {
-		try {
 			return repositori.getEmployeeById(id);
-		} catch (NoSuchElementException e) {
-			return null;
-		}
 	}
 
 	// Actualitzar Empleat
@@ -77,7 +70,7 @@ public class ControllerEmployees {
 	@DeleteMapping("/Empleat/{id}")
 	public String deleteEmployee( @PathVariable("id") int id) {
 		repositori.deleteEmployee(id);
-		if (getFirstEmployee(id)==null) {
+		if(repositori.getEmployeeById(id)==null) {
 			return "Empleat eliminat correctament.";
 		}
 			return "L'emplat no s'ha pogut eliminar.";
