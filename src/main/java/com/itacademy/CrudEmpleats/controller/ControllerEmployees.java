@@ -45,8 +45,9 @@ public class ControllerEmployees {
 	
 	// Crear nou empleat
 	@PostMapping( "/Empleat")
-	public void addEmployee(@RequestBody Employee employee) {
+	public Employee addEmployee(@RequestBody Employee employee) {
 		repositori.addEmployee(employee);
+		return employee;
 	}
 	
 	// Retorna una llista JSon d'empleats
@@ -65,7 +66,12 @@ public class ControllerEmployees {
 		}
 	}
 
-
+	//Actualitzar Empleat
+	@PutMapping("/Empleat/{id}")
+	public Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") int id) {
+		repositori.updateEmployee(employee,id);
+		return repositori.getEmployeeById(id);
+	}
 
 	
 

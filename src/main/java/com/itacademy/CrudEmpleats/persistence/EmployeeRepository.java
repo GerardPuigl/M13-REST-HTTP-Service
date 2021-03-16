@@ -10,7 +10,7 @@ import com.itacademy.CrudEmpleats.domain.Employee;
 public class EmployeeRepository {
 
 	/*
-	 * Els objectes seran persistidos únicament en memòria
+	 * Els objectes seran persistits únicament en memòria
 	 * 
 	 */
 
@@ -33,6 +33,14 @@ public class EmployeeRepository {
 	public void addEmployee(Employee employee) {
 		repository.add(employee);
 		
+	}
+
+	public void updateEmployee(Employee employee, int id) {
+		for(Employee e : repository) {
+			if(e.getId()==id) {
+				repository.set(repository.indexOf(e),employee);
+			}
+		}
 	}
 
 }
