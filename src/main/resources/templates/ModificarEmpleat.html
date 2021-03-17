@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html>
 <head>
-<th:block th:include="Fragments/head :: head"></th:block>
-
+	<meta charset="UTF-8">
+	<title>Spring - Crud Empleats</title>
 </head>
 <body>
-	<div class="container">
-		<div th:insert="Fragments/BodyHeader :: div"></div>
-
-
-	<label>Introduir un nou empleat:</label><br><br>
-	
-	<form action="/" method="post">
-		Nom: <input type=text name=><br><br>
-		Cognom: <input type=text name=cognom><br><br>
-		
-		<input type=submit name="submit" value="Nou Empleat">
-	
-	
-	</form>
+	<div class="container"></div>
+	<div>
+		<H4>Modificar empleat</H4>
 	</div>
+	<div>
+		<div class="container">
+			<div th:insert="Fragments/BodyHeader :: div"></div>
+			<form action="/" method="post">
+				#: <input type="text" name=id>
+				Nom: <input type=text name=name>
+				Càrreg: <input type=text name=job>
+				<br><br>
+				<input type=submit name="submit" value="Modificar">
+				<input type=submit name="submit" value="Cancellar">
+			</form>
+		</div>
 </body>
+
 </html>

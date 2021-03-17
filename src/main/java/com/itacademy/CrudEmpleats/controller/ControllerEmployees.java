@@ -21,15 +21,15 @@ public class ControllerEmployees {
 	@Autowired
 	private EmployeeRepository repositori;
 
-	
+	/*
 	// Temporalment redirigim a la llista d'empleats
 	@GetMapping("/")
 	void start(HttpServletResponse reponse) throws IOException {
 		reponse.sendRedirect("/Empleat");
-	}
+	}*/
 	
 	// Crear nou empleat
-	@PostMapping( "/Empleat")
+	@PostMapping( "/EmpleatList")
 	@ResponseStatus(HttpStatus.CREATED)  // 201
 	public Employee addEmployee(@RequestBody Employee employee) {
 		repositori.addEmployee(employee);
@@ -37,19 +37,19 @@ public class ControllerEmployees {
 	}
 	
 	// Retorna una llista JSon d'empleats
-	@GetMapping("/Empleat")
+	@GetMapping("/EmpleatList")
 	public List<Employee> allEmployees() {
 		return repositori.getAllEmployees();
 	}
 
 	// Busca un empleat per Id
-	@GetMapping("/Empleat/{id}")
+	@GetMapping("/EmpleatList/{id}")
 	public Employee getFirstEmployee(@PathVariable("id") int id) {
 			return repositori.getEmployeeById(id);
 	}
 
 	// Actualitzar Empleat
-	@PutMapping("/Empleat/{id}")
+	@PutMapping("/EmpleatList/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
 	public Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") int id) {
 		repositori.updateEmployee(employee,id);
@@ -57,7 +57,7 @@ public class ControllerEmployees {
 	}
 
 	// Eliminar Empleat
-	@DeleteMapping("/Empleat/{id}")
+	@DeleteMapping("/EmpleatList/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
 	public String deleteEmployee(@PathVariable("id") int id) {
 			repositori.deleteEmployee(id);
