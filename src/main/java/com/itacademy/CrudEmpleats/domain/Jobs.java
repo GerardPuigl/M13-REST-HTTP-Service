@@ -2,10 +2,7 @@ package com.itacademy.CrudEmpleats.domain;
 
 public enum Jobs {
 
-	/*
-	 * Les feines són fixes, és a dir ja estan definits en un ENUMERABLE.
-	 * 
-	 */
+	//Enum que defineix nom del carreg i sou.
 	
 	Director_Projectes("Director de projectes",50000),
 	Programador_Senior("Programador Senior",35000),

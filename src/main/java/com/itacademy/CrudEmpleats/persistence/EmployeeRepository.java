@@ -5,15 +5,15 @@ import java.util.*;
 import org.springframework.stereotype.Service;
 
 import com.itacademy.CrudEmpleats.domain.Employee;
+import com.itacademy.CrudEmpleats.exceptions.IdNotFound;
 
 @Service
-public class EmployeeRepository {
+public class EmployeeRepository implements IEmployeeRepository{
 
+	// Els objectes persistents únicament en memòria
+
+	private static int idcount=0;
 	/*
-	 * Els objectes seran persistits únicament en memòria
-	 * 
-	 */
-
 	private List<Employee> repository = new ArrayList<>(
 			Arrays.asList(
 					new Employee("Joan", "Director_Projectes"),
@@ -21,6 +21,15 @@ public class EmployeeRepository {
 					new Employee("Maria", "Administrativa")
 					)
 			);
+	*/
+	private List<Employee> repository = new ArrayList<>(
+			Arrays.asList(
+					new Employee(idcount++,"Joan", "Director_Projectes"),
+					new Employee(idcount++,"Gerard", "Programador_Junior"),
+					new Employee(idcount++,"Maria", "Administrativa")
+					)
+			);
+	
 	
 	public List<Employee> getAllEmployees() {
 		return repository;
@@ -30,26 +39,23 @@ public class EmployeeRepository {
 		try {
 			return repository.stream().filter(employee -> employee.getId()==id).findFirst().get();
 		} catch (Exception e) {
-			return null;
+			throw new IdNotFound(id);
 		}
-
 	}
 
 	public void addEmployee(Employee employee) {
+		employee.setId(idcount++);
 		repository.add(employee);
-		
 	}
 
 	public void updateEmployee(Employee employee, int id) {
-		for(Employee e : repository) {
-			if(e.getId()==id) {
-				repository.set(repository.indexOf(e),employee);
-			}
-		}
+		Employee existingEmployee = getEmployeeById(id);
+		employee.setId(id); //garantitzar que el nou objecte tingui el mateix id que l'antic.
+		repository.set(repository.indexOf(existingEmployee),employee);
 	}
 
 	public void deleteEmployee(int id) {
-		repository.removeIf(empleat -> empleat.getId()==id);		
+		repository.remove(getEmployeeById(id));
 	}
 
 }

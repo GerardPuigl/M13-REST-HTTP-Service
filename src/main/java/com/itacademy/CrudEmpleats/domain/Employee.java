@@ -2,24 +2,14 @@ package com.itacademy.CrudEmpleats.domain;
 
 public class Employee {
 
-	/*
-	 * D'un treballador identifiquem el nom i la seva feina, estaria bé tenir un
-	 * identificador únic per aquest treballador.
-	 * Depenent de la feina s'assignarà un
-	 * salari a l'empleat un cop es crea.
-	 * 
-	 */
-	
-	private static int idCount=0;
 	private int id;
 	private String name;
 	private String job;
 	private double salary ;
 	
-
-	
-	public Employee(String name, String job) {
-		this.id=idCount++;
+	//salari i cárreg en funció de la calsse Jobs Enum.
+	public Employee(int id,String name, String job) {
+		this.id=id;
 		this.name = name;
 		this.job = Jobs.valueOf(job).getName();
 		this.salary = Jobs.valueOf(job).getSalary();
@@ -48,7 +38,5 @@ public class Employee {
 	public double getSalary() {
 		return salary;
 	}
-	
-	
-	
+
 }
