@@ -29,7 +29,7 @@ public class ControllerEmployees {
 	}*/
 	
 	// Crear nou empleat
-	@PostMapping( "/EmpleatList")
+	@PostMapping( "/EmployeeList")
 	@ResponseStatus(HttpStatus.CREATED)  // 201
 	public void addEmployee(@RequestBody Employee employee) {
 		repositori.addEmployee(employee);
@@ -37,19 +37,19 @@ public class ControllerEmployees {
 	}
 	
 	// Retorna una llista JSon d'empleats
-	@GetMapping("/EmpleatList")
+	@GetMapping("/EmployeeList")
 	public List<Employee> allEmployees() {
 		return repositori.getAllEmployees();
 	}
 
 	// Busca un empleat per Id
-	@GetMapping("/EmpleatList/{id}")
+	@GetMapping("/EmployeeList/{id}")
 	public Employee getFirstEmployee(@PathVariable("id") int id) {
 			return repositori.getEmployeeById(id);
 	}
 
 	// Actualitzar Empleat
-	@PutMapping("/EmpleatList/{id}")
+	@PutMapping("/EmployeeList/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
 	public Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") int id) {
 		repositori.updateEmployee(employee,id);
@@ -57,7 +57,7 @@ public class ControllerEmployees {
 	}
 
 	// Eliminar Empleat
-	@DeleteMapping("/EmpleatList/{id}")
+	@DeleteMapping("/EmployeeList/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
 	public String deleteEmployee(@PathVariable("id") int id) {
 			repositori.deleteEmployee(id);
