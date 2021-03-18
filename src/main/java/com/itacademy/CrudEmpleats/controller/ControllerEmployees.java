@@ -31,9 +31,9 @@ public class ControllerEmployees {
 	// Crear nou empleat
 	@PostMapping( "/EmpleatList")
 	@ResponseStatus(HttpStatus.CREATED)  // 201
-	public Employee addEmployee(@RequestBody Employee employee) {
+	public void addEmployee(@RequestBody Employee employee) {
 		repositori.addEmployee(employee);
-		return employee;
+
 	}
 	
 	// Retorna una llista JSon d'empleats

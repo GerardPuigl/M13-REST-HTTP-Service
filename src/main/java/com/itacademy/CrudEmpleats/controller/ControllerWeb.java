@@ -9,14 +9,15 @@ public class ControllerWeb {
 	 * Controlador d'accés html
 	 */
 	
+	
 	@GetMapping("/index")
 	public String goIndex() {
 		return "index";
 	}
-
-	@GetMapping("/BodyHeader")
+	
+	@GetMapping("/ModificarEmpleat")
 	public String bodyHeader() {
-		return "BodyHeader";
+		return "ModificarEmpleat";
 	}
 
 }
