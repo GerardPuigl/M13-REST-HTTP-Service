@@ -13,8 +13,8 @@ function updateTable() {
 				"<td>" + employee.job + "</td>" +
 				"<td>" + employee.salary + "</td>" +
 				"<td>" +
-				"<button type='button'onclick='editEmployee(" + employee.id + ")'>Modificar</button>" +
-				"<button type='button' onclick='deleteEmployee(" + employee.id + ")'>Eliminar</button>" +
+				"<button type='button' class='btn btn-light' data-toggle='modal' data-target='#modal' onclick='editEmployee(" + employee.id + ")'>Modificar</button>" +
+				"<button type='button' class='btn btn-danger' onclick='deleteEmployee(" + employee.id + ")'>Eliminar</button>" +
 				"</td>"
 		});
 		$('#employeeTable > tbody').append(table_data);
@@ -53,6 +53,7 @@ function sendEmployee() {
 			}),
 			success: function (data, textStatus, jQxhr) {
 				updateTable();
+				$('#modal').modal('hide');
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				console.log(textStatus);
@@ -60,7 +61,8 @@ function sendEmployee() {
 		});
 	}
 	$('#EmployeeForm').trigger('reset');
-	$('#action').val('Afegir')
+	$('#action').val('Afegir');
+	$('#formType').html('Afegir nou');
 };
 
 //Delete employee
@@ -87,7 +89,16 @@ function editEmployee(id) {
 		$('#job').val(getJobCode(data.job));
 	});
 	$('#action').val('Actualitzar');
+	$('#formType').html('Actualizar');
 };
+
+//Set Form in New Employee Mode
+function newEmployee(){
+	$('#EmployeeForm').trigger('reset');
+	$('#action').val('Afegir');
+	$('#formType').html('Afegir nou');
+}
+
 
 //Take the enum codes for Employee Jobs.
 function getJobCode(job) {
