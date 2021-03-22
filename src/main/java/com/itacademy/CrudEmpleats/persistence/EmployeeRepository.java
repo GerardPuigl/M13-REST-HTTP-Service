@@ -13,20 +13,12 @@ public class EmployeeRepository implements IEmployeeRepository{
 	// Els objectes persistents únicament en memòria
 
 	private static int idcount=0;
-	/*
-	private List<Employee> repository = new ArrayList<>(
-			Arrays.asList(
-					new Employee("Joan", "Director_Projectes"),
-					new Employee("Gerard", "Programador_Junior"),
-					new Employee("Maria", "Administrativa")
-					)
-			);
-	*/
+
 	private List<Employee> repository = new ArrayList<>(
 			Arrays.asList(
 					new Employee(idcount++,"Joan", "Director_Projectes"),
 					new Employee(idcount++,"Gerard", "Programador_Junior"),
-					new Employee(idcount++,"Maria", "Administrativa")
+					new Employee(idcount++,"Maria", "Administratiu")
 					)
 			);
 	
