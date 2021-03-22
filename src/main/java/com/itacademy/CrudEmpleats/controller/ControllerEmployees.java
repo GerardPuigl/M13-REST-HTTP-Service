@@ -18,13 +18,6 @@ public class ControllerEmployees {
 	
 	@Autowired
 	private EmployeeRepository repositori;
-
-	/*
-	// Temporalment redirigim a la llista d'empleats
-	@GetMapping("/")
-	void start(HttpServletResponse reponse) throws IOException {
-		reponse.sendRedirect("/Empleat");
-	}*/
 	
 	// Crear nou empleat
 	@PostMapping( "/EmployeeList")
