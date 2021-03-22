@@ -1,0 +1,11 @@
+body::after {
+    content: "";
+    background: url(/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M13-HTTP-Service/src/main/resources/static/background.jpeg);
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
