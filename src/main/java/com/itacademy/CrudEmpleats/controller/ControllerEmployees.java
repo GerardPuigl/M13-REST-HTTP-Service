@@ -2,6 +2,7 @@ package com.itacademy.CrudEmpleats.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class ControllerEmployees {
 	// Crear nou empleat
 	@PostMapping( "/EmployeeList")
 	@ResponseStatus(HttpStatus.CREATED)  // 201
-	public void addEmployee(@RequestBody Employee employee) {
+	public void addEmployee(@Valid @RequestBody Employee employee) {
 		repositori.addEmployee(employee);
 
 	}
@@ -42,7 +43,7 @@ public class ControllerEmployees {
 	// Actualitzar Empleat
 	@PutMapping("/EmployeeList/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
-	public Employee updateEmployee(@RequestBody Employee employee, @PathVariable("id") int id) {
+	public Employee updateEmployee(@Valid @RequestBody Employee employee, @PathVariable("id") int id) {
 		repositori.updateEmployee(employee,id);
 		return repositori.getEmployeeById(id);
 	}

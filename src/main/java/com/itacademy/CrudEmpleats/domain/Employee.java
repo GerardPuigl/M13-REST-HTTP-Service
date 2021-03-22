@@ -1,9 +1,15 @@
 package com.itacademy.CrudEmpleats.domain;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Employee {
 
+	@NotNull
 	private int id;
+	@NotBlank
 	private String name;
+	@NotBlank
 	private String job;
 	private double salary ;
 	
