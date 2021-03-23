@@ -1,24 +1,33 @@
+$(document).ready(function () {
+	updateTable();
+});
 
-$(document).ready(updateTable());
+var table=$('#employeeTable').DataTable({
+    columnDefs: [
+        {targets: '_all',classname: 'dt-center' }
+      ]
+  });
 
 //Read employee List & Update the table
 function updateTable() {
 	$.get("/EmployeeList", function (data) {
-		$('#employeeTable > tbody').empty();
-		var table_data;
+		table.clear();
 		$.each(data, function (i, employee) {
-			table_data += "<tr>" +
-				"<td>" + employee.id + "</td>" +
-				"<td>" + employee.name + "</td>" +
-				"<td>" + employee.job + "</td>" +
-				"<td>" + employee.salary + "</td>" +
-				"<td>" +
-				"<button type='button'onclick='editEmployee(" + employee.id + ")'>Modificar</button>" +
-				"<button type='button' onclick='deleteEmployee(" + employee.id + ")'>Eliminar</button>" +
-				"</td>"
+			table.row.add(createRow(employee)).draw();
 		});
-		$('#employeeTable > tbody').append(table_data);
 	});
+};
+
+//create Row for DataTables Format
+function createRow(employee){
+	return [
+		employee.id,
+		employee.name,
+		employee.job,
+		employee.salary,
+	   "<button type='button' class='btn btn-light' data-toggle='modal' data-target='#modal' onclick='editEmployee(" + employee.id + ")'>Modificar</button>" +
+	   "<button type='button' class='btn btn-danger' onclick='deleteEmployee(" + employee.id + ")'>Eliminar</button>" 
+	   ];
 };
 
 //Create & update
@@ -34,14 +43,14 @@ function sendEmployee() {
 				"job": $('#job').val()
 			}),
 			success: function (data, textStatus, jQxhr) {
-				updateTable();
+				table.row.add(createRow(data)).order( [ 0, 'asc' ] ).page('last').draw(false);
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				console.log(textStatus);
 			}
 		});
-	//Update employee
-	} if ($('#action').val()=='Actualitzar') {
+		//Update employee
+	} if ($('#action').val() == 'Actualitzar') {
 		$.ajax({
 			url: '/EmployeeList/' + $('#idEmployee').val(),
 			type: 'PUT',
@@ -52,7 +61,8 @@ function sendEmployee() {
 				"job": $('#job').val()
 			}),
 			success: function (data, textStatus, jQxhr) {
-				updateTable();
+				table.row(data.id).data(createRow(data)).draw(false);
+				$('#modal').modal('hide');
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				console.log(textStatus);
@@ -60,23 +70,47 @@ function sendEmployee() {
 		});
 	}
 	$('#EmployeeForm').trigger('reset');
-	$('#action').val('Afegir')
+	$('#action').val('Afegir');
+	$('#formType').html('Afegir nou');
 };
 
 //Delete employee
 function deleteEmployee(id) {
-	if (confirm("Desitja eliminar a l'Empleat?")) {
-		$.ajax({
-			type: "DELETE",
-			url: "/EmployeeList/" + id,
-			success: function (data, textStatus, jQxhr) {
-				updateTable();
+	bootbox.confirm({
+		size: "small",
+		message: "Estas segur que vols eliminar l'Empleat?",
+		centerVertical: "modal-dialog-centered",
+		buttons: {
+			confirm: {
+				label: 'Eliminar',
+				classcourse: 'btn-danger'
 			},
-			error: function (xhr, textStatus, errorThrown) {
-				console.log(textStatus);
+			cancel: {
+				label: 'Cancel·lar',
+				classcourse: 'btn-default'
 			}
-		});
-	};
+		},
+		callback: function (result) {
+			if (result == true) {
+				$.ajax({
+					type: "DELETE",
+					url: "/EmployeeList/" + id,
+					success: function (data, textStatus, jQxhr) {
+						var indexes = table
+						.rows()
+						.indexes()
+						.filter( function ( value, index ) {
+						  return id === table.row(value).data()[0];
+						} );
+					   table.rows(indexes).remove().draw(false);
+					},
+					error: function (xhr, textStatus, errorThrown) {
+						console.log(textStatus);
+					}
+				});
+			}
+		}
+	})
 };
 
 //Read one employee info and put in the modifier form.
@@ -87,7 +121,15 @@ function editEmployee(id) {
 		$('#job').val(getJobCode(data.job));
 	});
 	$('#action').val('Actualitzar');
+	$('#formType').html('Actualizar');
 };
+
+//Set Form in New Employee Mode
+function newEmployee() {
+	$('#EmployeeForm').trigger('reset');
+	$('#action').val('Afegir');
+	$('#formType').html('Afegir nou');
+}
 
 //Take the enum codes for Employee Jobs.
 function getJobCode(job) {

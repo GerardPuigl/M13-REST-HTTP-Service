@@ -16,9 +16,17 @@ public class EmployeeRepository implements IEmployeeRepository{
 
 	private List<Employee> repository = new ArrayList<>(
 			Arrays.asList(
-					new Employee(idcount++,"Joan", "Director_Projectes"),
-					new Employee(idcount++,"Gerard", "Programador_Junior"),
-					new Employee(idcount++,"Maria", "Administratiu")
+					new Employee(idcount++,"Joan Gordi", "Director_Projectes"),
+					new Employee(idcount++,"Gerard Puig", "Programador_Mid"),
+					new Employee(idcount++,"Maria Camps", "Administratiu"),
+					new Employee(idcount++,"Anaïs Iglesias", "Programador_Mid"),
+					new Employee(idcount++,"Pere Masnou", "Administratiu"),
+					new Employee(idcount++,"Laura Klaus", "Programador_Senior"),
+					new Employee(idcount++,"Jhon Smith", "Administratiu"),
+					new Employee(idcount++,"Ramón Dalmau", "Programador_Mid"),
+					new Employee(idcount++,"Joana Gracia", "Programador_Junior"),
+					new Employee(idcount++,"Quique Mota", "Administratiu"),
+					new Employee(idcount++,"Kevin Lohan", "Director_Projectes")
 					)
 			);
 	
