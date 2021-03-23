@@ -48,3 +48,12 @@
     padding: 2%;
 }
 
+.btn-table{
+    padding: 0.05rem 0.40rem !important;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.icon{
+    font-size: 19px;
+}

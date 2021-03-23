@@ -24,8 +24,14 @@ function createRow(employee) {
 		employee.name,
 		employee.job,
 		employee.salary,
-		"<button type='button' class='btn btn-light' data-toggle='modal' data-target='#modal' onclick='editEmployee(" + employee.id + ")'>Modificar</button>" +
-		"<button type='button' class='btn btn-danger' onclick='deleteEmployee(" + employee.id + ")'>Eliminar</button>"
+		//Edit button with Icon
+		"<a role='button' class='btn btn-light btn-table' data-toggle='modal' data-target='#modal' "+
+		"onclick='editEmployee(" + employee.id + ")'>"+
+		"<i class='bi bi-pencil-square icon'></i></a>" +
+		//Delete button with Icon
+		"<a role='button' type='button' class='btn btn-danger btn-table'"+
+		"onclick='deleteEmployee(" + employee.id + ")'>"+
+		"<i class='bi bi-person-dash-fill icon' style='color:white'></i></a>" 
 	];
 }
 
