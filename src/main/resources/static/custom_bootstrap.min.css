@@ -554,6 +554,7 @@ pre code {
 
 .table thead th {
   vertical-align: bottom;
+  background-color: white;
   border-bottom: 2px solid #dee2e6;
 }
 
@@ -588,9 +589,13 @@ pre code {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.10);
 }
 
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgb(255, 255, 255);
+
+}
 .table-hover tbody tr:hover {
   color: #212529;
   background-color: rgba(0, 0, 0, 0.075);
