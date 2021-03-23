@@ -23,8 +23,9 @@ public class ControllerEmployees {
 	// Crear nou empleat
 	@PostMapping( "/EmployeeList")
 	@ResponseStatus(HttpStatus.CREATED)  // 201
-	public void addEmployee(@Valid @RequestBody Employee employee) {
+	public Employee addEmployee(@Valid @RequestBody Employee employee) {
 		repositori.addEmployee(employee);
+		return repositori.getEmployeeById(employee.getId());
 
 	}
 	
