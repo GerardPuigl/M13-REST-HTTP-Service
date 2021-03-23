@@ -15,6 +15,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
 	<!-- Boostrap custom colors -->
 	<link rel="stylesheet" type="text/css"	href="custom_bootstrap.min.css">
@@ -45,18 +46,19 @@
 					</div>
 					<div class="col-sm-2 my-auto">
 						<button type="button" class="btn btn-primary add" data-toggle="modal" data-target="#modal" onclick="newEmployee();">
+							<i class="bi bi-person-plus-fill icon" style="margin-right: 5px;"></i>
 							Nou Empleat</button>
 					</div>
 				</div>
 				<div class="col-sm-12 tableBody">
-					<table id="employeeTable" class="table table-bordered table-hover table-striped">
+					<table id="employeeTable" class="table table-hover table-striped">
 						<thead>
 							<tr>
-								<th style="width:3%" >#</th>
-								<th style="width:25%">Nom</th>
-								<th style="width:25%">Càrreg</th>
-								<th style="width:25%">Salari</th>
-								<th style="width:22%">Accions</th>
+								<th style="width:4%" >#</th>
+								<th style="width:28%">Nom</th>
+								<th style="width:28%">Càrreg</th>
+								<th style="width:28%">Salari</th>
+								<th style="width:12%">Accions</th>
 							</tr>
 						</thead>
 						<tbody>								
