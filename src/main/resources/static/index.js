@@ -2,11 +2,10 @@ $(document).ready(function () {
 	updateTable();
 });
 
-var table=$('#employeeTable').DataTable({
-    columnDefs: [
-        {targets: '_all',classname: 'dt-center' }
-      ]
-  });
+var table = $('#employeeTable').DataTable({
+	columnDefs: [
+		{ targets: '_all', className: 'text-center' }]
+});
 
 //Read employee List & Update the table
 function updateTable() {
@@ -16,19 +15,19 @@ function updateTable() {
 			table.row.add(createRow(employee)).draw();
 		});
 	});
-};
+}
 
 //create Row for DataTables Format
-function createRow(employee){
+function createRow(employee) {
 	return [
 		employee.id,
 		employee.name,
 		employee.job,
 		employee.salary,
-	   "<button type='button' class='btn btn-light' data-toggle='modal' data-target='#modal' onclick='editEmployee(" + employee.id + ")'>Modificar</button>" +
-	   "<button type='button' class='btn btn-danger' onclick='deleteEmployee(" + employee.id + ")'>Eliminar</button>" 
-	   ];
-};
+		"<button type='button' class='btn btn-light' data-toggle='modal' data-target='#modal' onclick='editEmployee(" + employee.id + ")'>Modificar</button>" +
+		"<button type='button' class='btn btn-danger' onclick='deleteEmployee(" + employee.id + ")'>Eliminar</button>"
+	];
+}
 
 //Create & update
 function sendEmployee() {
@@ -43,7 +42,7 @@ function sendEmployee() {
 				"job": $('#job').val()
 			}),
 			success: function (data, textStatus, jQxhr) {
-				table.row.add(createRow(data)).order( [ 0, 'asc' ] ).page('last').draw(false);
+				table.row.add(createRow(data)).order([0, 'asc']).page('last').draw(false);
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				console.log(textStatus);
@@ -72,7 +71,7 @@ function sendEmployee() {
 	$('#EmployeeForm').trigger('reset');
 	$('#action').val('Afegir');
 	$('#formType').html('Afegir nou');
-};
+}
 
 //Delete employee
 function deleteEmployee(id) {
@@ -91,18 +90,18 @@ function deleteEmployee(id) {
 			}
 		},
 		callback: function (result) {
-			if (result == true) {
+			if (result === true) {
 				$.ajax({
 					type: "DELETE",
 					url: "/EmployeeList/" + id,
 					success: function (data, textStatus, jQxhr) {
 						var indexes = table
-						.rows()
-						.indexes()
-						.filter( function ( value, index ) {
-						  return id === table.row(value).data()[0];
-						} );
-					   table.rows(indexes).remove().draw(false);
+							.rows()
+							.indexes()
+							.filter(function (value, index) {
+								return id === table.row(value).data()[0];
+							});
+						table.rows(indexes).remove().draw(false);
 					},
 					error: function (xhr, textStatus, errorThrown) {
 						console.log(textStatus);
@@ -110,8 +109,8 @@ function deleteEmployee(id) {
 				});
 			}
 		}
-	})
-};
+	});
+}
 
 //Read one employee info and put in the modifier form.
 function editEmployee(id) {
@@ -122,7 +121,7 @@ function editEmployee(id) {
 	});
 	$('#action').val('Actualitzar');
 	$('#formType').html('Actualizar');
-};
+}
 
 //Set Form in New Employee Mode
 function newEmployee() {
