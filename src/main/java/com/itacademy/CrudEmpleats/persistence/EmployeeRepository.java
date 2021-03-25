@@ -1,20 +1,21 @@
 package com.itacademy.CrudEmpleats.persistence;
 
+
 import java.util.*;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.itacademy.CrudEmpleats.domain.Employee;
 import com.itacademy.CrudEmpleats.exceptions.IdNotFound;
 
-@Service
+@Repository
 public class EmployeeRepository implements IEmployeeRepository{
 
 	// Els objectes persistents únicament en memòria
 
 	private static int idcount=0;
 
-	private List<Employee> repository = new ArrayList<>(
+	private static List<Employee> repository = new ArrayList<>(
 			Arrays.asList(
 					new Employee(idcount++,"Joan Gordi", "Director_Projectes"),
 					new Employee(idcount++,"Gerard Puig", "Programador_Mid"),

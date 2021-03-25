@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import com.itacademy.CrudEmpleats.domain.Employee;
-import com.itacademy.CrudEmpleats.persistence.EmployeeRepository;
+import com.itacademy.CrudEmpleats.service.EmployeeServices;
 
 @RestController
 public class ControllerEmployees {
@@ -18,7 +18,7 @@ public class ControllerEmployees {
 	 */
 	
 	@Autowired
-	private EmployeeRepository repositori;
+	private EmployeeServices repositori;
 	
 	// Crear nou empleat
 	@PostMapping( "/EmployeeList")
