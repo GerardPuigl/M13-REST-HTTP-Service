@@ -1,0 +1,59 @@
+ body::after {
+    content: "";
+    background: url(background.jpeg);
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-size: cover;
+    z-index: -1;   
+}
+
+.main-section{
+    margin:auto;
+    margin-top: 5%;
+    background-color:rgba(244, 244, 244, 0.97);
+    border-radius: 6px;
+}
+
+
+.Header{
+    display: flex;
+    padding: 2%;
+    color: white;
+    background-color:rgb(61, 94, 143);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.modal-header{
+    padding: 4%;
+    color: white;
+    background-color: rgba(61, 94, 143, 0.90);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    
+}
+
+.headertitle{
+    margin: 0 auto;
+    color: white;
+    margin-top: 4px;
+}
+
+
+.tableBody{
+    padding: 2%;
+}
+
+.btn-table{
+    padding: 0.05rem 0.40rem !important;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.icon{
+    font-size: 19px;
+}
