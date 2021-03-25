@@ -1,9 +1,19 @@
 package com.itacademy.CrudEmpleats.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Employee {
 
+	@Id
+	@NotNull
 	private int id;
+	@NotBlank
 	private String name;
+	@NotBlank
 	private String job;
 	private double salary ;
 	

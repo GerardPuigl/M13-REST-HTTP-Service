@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.itacademy.CrudEmpleats.domain.Employee;
 
+
 public interface IEmployeeRepository {
 	
 	public List<Employee> getAllEmployees();
