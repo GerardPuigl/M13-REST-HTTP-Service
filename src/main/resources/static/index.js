@@ -3,6 +3,7 @@ $(document).ready(function () {
 });
 
 var table = $('#employeeTable').DataTable({
+	rowId:0,
 	columnDefs: [
 		{ targets: '_all', className: 'text-center' }]
 });
@@ -17,7 +18,7 @@ function updateTable() {
 	});
 }
 
-//create Row for DataTables Format
+//Create Row for DataTables Format
 function createRow(employee) {
 	return [
 		employee.id,
@@ -66,7 +67,8 @@ function sendEmployee() {
 				"job": $('#job').val()
 			}),
 			success: function (data, textStatus, jQxhr) {
-				table.row(data.id).data(createRow(data)).draw(false);
+				var rowSelector = "#" + data.id;
+				table.row(rowSelector).data(createRow(data)).draw(false);
 				$('#modal').modal('hide');
 			},
 			error: function (xhr, textStatus, errorThrown) {
@@ -101,13 +103,8 @@ function deleteEmployee(id) {
 					type: "DELETE",
 					url: "/EmployeeList/" + id,
 					success: function (data, textStatus, jQxhr) {
-						var indexes = table
-							.rows()
-							.indexes()
-							.filter(function (value, index) {
-								return id === table.row(value).data()[0];
-							});
-						table.rows(indexes).remove().draw(false);
+						var rowSelector = "#" + id;
+						table.row(rowSelector).remove().draw(false);
 					},
 					error: function (xhr, textStatus, errorThrown) {
 						console.log(textStatus);
