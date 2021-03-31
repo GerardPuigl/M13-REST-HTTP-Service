@@ -139,7 +139,7 @@ function getJobCode(job) {
 		return 'Director_Projectes';
 	} if (job == 'Programador Senior') {
 		return 'Programador_Senior';
-	} if (job == 'Programador_Mid') {
+	} if (job == 'Programador Mid-Level') {
 		return 'Programador_Mid';
 	} if (job == 'Programador Junior') {
 		return 'Programador_Junior';

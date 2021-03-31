@@ -6,32 +6,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itacademy.CrudEmpleats.domain.Employee;
-import com.itacademy.CrudEmpleats.persistence.EmployeeRepository;
+import com.itacademy.CrudEmpleats.persistence.IEmployeeRepository;
 
 @Service
 public class EmployeeServices {
 
 	@Autowired
-	private EmployeeRepository repositori;
+	private IEmployeeRepository repositori;
 	
 	public List<Employee> getAllEmployees() {
-		return repositori.getAllEmployees();
+		return repositori.findAll();
 	}
 	
 	public Employee getEmployeeById(int id){
-		return repositori.getEmployeeById(id);
+		return repositori.findById(id).orElse(null);
 	}
 
 	public void addEmployee(Employee employee) {
-		repositori.addEmployee(employee);
+		repositori.save(employee);
 	}
 
-	public void updateEmployee(Employee employee, int id) {
-		repositori.updateEmployee(employee, id);
+	public void updateEmployee(Employee employee) {
+		repositori.save(employee);
 	}
 
 	public void deleteEmployee(int id) {
-		repositori.deleteEmployee(id);
+		repositori.deleteById(id);
 	}
+
 
 }
