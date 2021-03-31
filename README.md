@@ -53,3 +53,8 @@ S'ha realitat la maqueta:
 ### - Nivell 3 - (Disseny web amb CSS, Bootstrap i DataTable)
 
 Realització del disseny estètic de la web mitjançant CSS, Bootstrap. S'ha implementat la llibreria DataTables per poder afegir funcionalitats a la taula d'empleats.
+<<<<<<< b2b9c77ae2ede149569a88403ac471529d8308d7
+=======
+
+Implementació de base de dades persistent MySQL. Creació de dos perfils de propietats per alternar entre MySQL i H2.
+>>>>>>> Update README.md
