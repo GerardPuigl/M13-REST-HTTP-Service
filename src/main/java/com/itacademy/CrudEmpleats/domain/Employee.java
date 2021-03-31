@@ -1,21 +1,36 @@
 package com.itacademy.CrudEmpleats.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name="employee")
 public class Employee {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	@NotNull
 	private int id;
+	
 	@NotBlank
+	@Column(name="name")
 	private String name;
+
 	@NotBlank
+	@Column(name="job")
 	private String job;
+	@Column(name="salary")
 	private double salary ;
+	
+	public Employee() {
+	}
 	
 	//salari i cárreg en funció de la calsse Jobs Enum.
 	public Employee(int id,String name, String job) {

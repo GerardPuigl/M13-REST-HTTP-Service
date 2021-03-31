@@ -45,7 +45,7 @@ public class ControllerEmployees {
 	@PutMapping("/EmployeeList/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
 	public Employee updateEmployee(@Valid @RequestBody Employee employee, @PathVariable("id") int id) {
-		repositori.updateEmployee(employee,id);
+		repositori.updateEmployee(employee);
 		return repositori.getEmployeeById(id);
 	}
 
