@@ -10,6 +10,7 @@
 <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/html-5.svg" alt="html-5" align="right" height="35px"></img>
 <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/jquery.svg" alt="jquery" align="right" height="35px"></img>
 <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/javascript.svg" alt="javascript" align="right" height="35px"></img>
+<img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/mysql.svg" alt="mysql" align="right" height="35px">
 <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/java.svg" alt="java" align="right" height="35px"></img>
 <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/spring-long.svg" alt="spring-long" align="right" height="35px"></img>
 
