@@ -17,13 +17,15 @@
 
 ## Descripció
 
-Exercici per aprofundir en peticions HTTP (GET, POST, PUT DELETE). Projecte realitzat amb Spring i amb patrò MVC aplicat.
+Exercici per aprofundir en peticions HTTP (GET, POST, PUT DELETE). Projecte realitzat amb Spring i amb patró MVC aplicat.
+
+link: https://employee-it.herokuapp.com/
 
 ### - Nivell 1 - (Rest API Spring)
 
-Realització d'una Rest API per fer peticions HTTP amb un CRUD (Create, Read, Update, Delete) al complet. Per això s'ha implementat un patró d'arquitectura MVC amb repositori en memoria.
+Realització d'una Rest API per fer peticions HTTP amb un CRUD (Create, Read, Update, Delete) al complet. Per això s'ha implementat un patró d'arquitectura MVC amb repositori en memòria.
 
-S'ha utilitzat Spring (Java) contruit amb Maven amb les implementacions:
+S'ha utilitzat Spring (Java) construït amb Maven amb les implementacions:
 - Spring Boot DevTools.
 - Spring Web.
 - Thymeleaf
@@ -35,7 +37,7 @@ Comprovació de peticions amb Postman.
 
 ### - Nivell 2 - (Estructura HTTP i lògica JavaScript)
 
-Creació d'una web amb http/javascript/ajax per crear un formulari per poder probar les crides API de la Rest API anterior.
+Creació d'una web amb http/javascript/ajax per crear un formulari per poder provar les crides API de la Rest API anterior.
 La web ha de poder fer el CRUD complet (Create, Read, Update, Delete) 
 
 S'ha realitat la maqueta:
@@ -50,5 +52,5 @@ S'ha realitat la maqueta:
 
 Realització del disseny estètic de la web mitjançant CSS, Bootstrap. S'ha implementat la llibreria DataTables per poder afegir funcionalitats a la taula d'empleats.
 
-Implementació de base de dades persistent MySQL i creació de dos perfils de propietats per alternar entre MySQL i H2 (BD en memoria)
+Implementació de base de dades persistent MySQL i creació de dos perfils de propietats per alternar entre MySQL i H2 (BD en memòria)
 
