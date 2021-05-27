@@ -1,4 +1,4 @@
-## Exercici Simple HTTP Service (M13)
+## Simple HTTP Service (M13)
 
 <p align="right">
   <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/spring-long.svg" title="spring-long" alt="spring-long" height="35px"/>
@@ -15,11 +15,25 @@
   <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/visual-studio-code.svg" title="visual-studio-code" alt="visual-studio-code" height="35px"/>
 </p>
 
-## Descripció
+## Introduction
 
-Exercici per aprofundir en peticions HTTP (GET, POST, PUT DELETE). Projecte realitzat amb Spring i amb patró MVC aplicat.
+Backend of Rest API CRUD with H2 Persistence Database. Developed with Spring boot and applying design pattern MVC.
+
+Frontend with Javascript & Jquery to consume & send Jsons to the Rest API and HTML, CSS with libraries Bootstrap & Datatables to show & interact with the user.
+
 
 link: https://employee-it.herokuapp.com/
+
+
+<p align="center">
+
+  <img src="https://github.com/gerardpuigl/M13-Spring-REST-HTTP-Service-Client-JavaScript-Jquery/blob/main/screenshots/M13-Employee%20CRUD%20HTTP%20SERVICE.jpg" title="CRUD employeesScreenshot" alt="CRUD employees" />
+
+</p>
+
+## Exercise Description [in Catalan]
+
+Exercici per aprofundir en peticions HTTP (GET, POST, PUT DELETE). Projecte realitzat amb Spring i amb patró MVC aplicat.
 
 ### - Nivell 1 - (Rest API Spring)
 
